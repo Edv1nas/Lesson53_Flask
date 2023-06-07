@@ -30,13 +30,15 @@ class Child(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column("name", db.String)
     surname = db.Column("surname", db.String)
+    # father_id = db.Column(db.Integer, db.ForeignKey("father.id"))
 
 
 @app.route("/children", methods=["GET", "POST"])
 def get_all_children():
     db.create_all()
     children = Child.query.all()
-    return render_template("children.html", children=children)
+    parent = Father.query.all()
+    return render_template("children.html", children=children, parent=parent)
 
 
 @app.route("/parent", methods=["GET", "POST"])

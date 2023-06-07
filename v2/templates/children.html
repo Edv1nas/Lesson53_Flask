@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% for child in children %}
+<form>
+    <textarea rows="2" cols="40" name="Description" spellcheck="false">Child name: {{child.name}},
+Child surname:{{child.surname}}</textarea>
+    {% endfor %}
+</form>
+
+{% for father in parent %}
+{% if father.child_id == child.id %}
+<form>
+    <textarea rows="2" cols="40" name="Description" spellcheck="false">Father name: {{father.name}},
+    Father surname:{{father.surname}}</textarea>
+    {% endif %}
+    {% endfor %}
+</form>
+{% endblock %}

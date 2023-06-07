@@ -4,7 +4,7 @@
 {% for father in parent %}
 <form>
     <textarea rows="2" cols="40" name="Description" spellcheck="false">Father name: {{father.name}},
-Father surname:{{father.surname}}, Father child: {{father.child_id}}</textarea>
+Father surname:{{father.surname}}, Child name: {{father.child.name}}</textarea>
 </form>
 {% endfor %}
 {% endblock %}

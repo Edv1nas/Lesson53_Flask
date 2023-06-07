@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, IntegerField
 from wtforms.validators import DataRequired
 from wtforms_sqlalchemy.fields import QuerySelectField
 import app
@@ -16,8 +16,9 @@ def father_query():
 class FatherForm(FlaskForm):
     name = StringField('Name', [DataRequired()])
     surname = StringField('Surname', [DataRequired()])
-    child = QuerySelectField(query_factory=child_query, allow_blank=True,
-                             get_label="name", get_pk=lambda obj: str(obj))
+    child = IntegerField("Child", [DataRequired()])
+    # child = QuerySelectField(query_factory=child_query, allow_blank=True,
+    #                          get_label="name", get_pk=lambda obj: str(obj))
     submit = SubmitField('Insert')
 
 

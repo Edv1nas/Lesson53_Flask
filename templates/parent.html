@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% for child in children %}
+{% for father in parent %}
 <form>
     <textarea rows="2" cols="40" name="Description" spellcheck="false">Father name: {{father.name}},
-Father surname:{{father.surname}}, Father child: {{father.child}}</textarea>
+Father surname:{{father.surname}}, Father child: {{father.child_id}}</textarea>
 </form>
 {% endfor %}
 {% endblock %}

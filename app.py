@@ -65,7 +65,8 @@ def new_father():
     forma = forms.FatherForm()
     if forma.validate_on_submit():
         new_father = Father(name=forma.name.data,
-                            surname=forma.surname.data,)
+                            surname=forma.surname.data,
+                            child_id=forma.child.data)
         db.session.add(new_father)
         db.session.commit()
         return redirect(url_for("get_all_parents"))
